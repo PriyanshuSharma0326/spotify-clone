@@ -1,0 +1,28 @@
+.sidebar-links {
+    padding: 1.8rem 1.5rem;
+    color: var(--grey-2);
+
+    ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 1.25rem;
+
+        li {
+            font-size: 0.65rem;
+            margin-right: 1rem;
+            cursor: pointer;
+        }
+    }
+
+    > li {
+        list-style: none;
+        font-size: 0.65rem;
+        margin-top: 1rem;
+        
+        &:hover {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    }
+}

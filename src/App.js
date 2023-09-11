@@ -10,6 +10,10 @@ function App() {
                 <Route index element={<>App</>} />
 
                 <Route path='playlist' element={<>A Playlist</>} />
+
+                <Route path='section' element={<>Playlist Section</>} />
+
+                <Route path='search' element={<>Search Section</>} />
             </Route>
 
             <Route path='/accounts'>

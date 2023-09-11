@@ -1,0 +1,14 @@
+.shared-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100vw;
+    height: 100vh;
+    padding: 0.5rem 0.75rem;
+
+    .app-main {
+        display: flex;
+        gap: 0.5rem;
+        height: 88%;
+    }
+}

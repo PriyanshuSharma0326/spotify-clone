@@ -1,0 +1,30 @@
+.sidebar-nav-section {
+    background-color: var(--grey-1);
+    border-radius: 0.5rem;
+
+    .sidebar-nav-link {
+        display: flex;
+        align-items: center;
+        padding: 1rem 1.15rem;
+        gap: 1rem;
+        color: var(--grey-2);
+        text-decoration: none;
+
+        > h1 {
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .MuiSvgIcon-root {
+            font-size: 1.75rem;
+        }
+
+        &.active {
+            color: var(--white);
+        }
+
+        &:hover {
+            color: var(--white);
+        }
+    }
+}

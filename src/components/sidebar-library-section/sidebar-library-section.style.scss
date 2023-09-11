@@ -1,0 +1,102 @@
+.sidebar-library-section {
+    background-color: var(--grey-1);
+    border-radius: 0.5rem;
+    height: 100%;
+
+    .sidebar-nav-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.15rem;
+        color: var(--grey-2);
+        text-decoration: none;
+
+        .link-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            > h1 {
+                font-size: 0.95rem;
+                font-weight: 600;
+            }
+
+            .MuiSvgIcon-root {
+                font-size: 1.75rem;
+            }
+
+            &.active {
+                color: var(--white);
+            }
+    
+            &:hover {
+                color: var(--white);
+            }
+        }
+
+        .add-playlist-button {
+            width: 2rem;
+            height: 2rem;
+            border-radius: 50%;
+            background-color: var(--grey-1);
+            color: var(--grey-2);
+            border: none;
+            outline: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+            .MuiSvgIcon-root {
+                font-size: 1.5rem;
+            }
+
+            &:hover {
+                color: white;
+                background-color: var(--hover-grey);
+            }
+        }
+    }
+
+    .library-section-banners {
+        padding-top: 0.5rem;
+        padding-bottom: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        max-height: 15rem;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .language-button {
+        width: fit-content;
+        background-color: transparent;
+        color: var(--white);
+        font-size: 0.85rem;
+        font-weight: 600;
+        border: 1px solid var(--grey-2);
+        outline: none;
+        cursor: pointer;
+        border-radius: 2rem;
+        padding: 0.4rem 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        margin-left: 1.5rem;
+        transition: all 0.1s ease-in-out;
+
+        .MuiSvgIcon-root {
+            font-size: 1.25rem;
+        }
+
+        &:hover {
+            transform: scale(1.02);
+            border: 2px solid var(--grey-2);
+        }
+    }
+}
