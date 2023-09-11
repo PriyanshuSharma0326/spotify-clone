@@ -5,7 +5,7 @@ function Button({ buttonText, buttonType, type, ...otherProps }) {
     const BUTTON_TYPE_CLASS = {
         regular: 'regular',
         green: 'green',
-        lighter: 'lighter',
+        big: 'big',
     }
 
     return (

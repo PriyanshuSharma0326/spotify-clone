@@ -2,6 +2,7 @@ import React from 'react';
 import './shared-layout.scss';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../../components/sidebar/sidebar.component';
+import Footer from '../../components/footer/footer.component';
 
 function SharedLayout() {
     return (
@@ -12,7 +13,7 @@ function SharedLayout() {
                 <Outlet />
             </div>
 
-            <h3>Footer</h3>
+            <Footer />
         </div>
     )
 }

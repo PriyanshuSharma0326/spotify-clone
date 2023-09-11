@@ -14,4 +14,13 @@
     &:hover {
         transform: scale(1.02);
     }
+
+    &.big {
+        font-size: 0.95rem;
+        padding: 1rem 2rem;
+
+        &:hover {
+            transform: scale(1.03);
+        }
+    }
 }
