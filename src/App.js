@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+
+import SharedLayout from './routes/shared-layout/shared-layout';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <Routes>
+            <Route path='/' element={<SharedLayout />}>
+                <Route index element={<>App</>} />
+
+                <Route path='playlist' element={<>A Playlist</>} />
+            </Route>
+
+            <Route path='/accounts'>
+                <Route index element={<>Account Page</>} />
+
+                <Route path='login' element={<>login</>} />
+
+                <Route path='register' element={<>Register</>} />
+            </Route>
+        </Routes>
+    );
 }
 
 export default App;
