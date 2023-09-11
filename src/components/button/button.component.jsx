@@ -3,9 +3,9 @@ import './button.style.scss';
 
 function Button({ buttonText, buttonType, type, ...otherProps }) {
     const BUTTON_TYPE_CLASS = {
-        regular: 'regular',
-        green: 'green',
         big: 'big',
+        noPadding: 'no-padding',
+        noPaddingSmall: 'no-padding-small',
     }
 
     return (

@@ -23,4 +23,30 @@
             transform: scale(1.03);
         }
     }
+
+    &.no-padding {
+        font-size: 0.95rem;
+        padding: 0;
+        background-color: transparent;
+        color: var(--grey-2);
+        border-radius: 0;
+        height: fit-content;
+
+        &:hover {
+            color: var(--white);
+        }
+    }
+
+    &.no-padding-small {
+        font-size: 0.85rem;
+        padding: 0;
+        background-color: transparent;
+        color: var(--grey-2);
+        border-radius: 0;
+        height: fit-content;
+
+        &:hover {
+            color: var(--white);
+        }
+    }
 }

@@ -16,6 +16,9 @@
 
     --gradient-bg-fallback: rgb(199,0,181);
     --gradient-bg: linear-gradient(90deg, rgba(199,0,181,1) 0%, rgba(41,200,255,1) 100%);
+
+    --gradient-bg-fallback-black: rgb(10,10,10);
+    --gradient-bg-black: linear-gradient(180deg, rgba(10,10,10,1) 0%, rgba(27,27,27,1) 100%);
 }
 
 html {

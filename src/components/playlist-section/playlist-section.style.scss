@@ -1,0 +1,28 @@
+.playlist-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .section-links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+    
+    .playlists-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        column-gap: 1.5rem;
+    }
+}
