@@ -10,6 +10,8 @@ function MainContainer() {
 
             <div className="playlists-list">
                 <PlaylistSection />
+
+                <PlaylistSection />
             </div>
         </div>
     )

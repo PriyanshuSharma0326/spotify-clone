@@ -1,0 +1,38 @@
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+
+    .form-input-label {
+        color: var(--dark);
+        font-size: 0.85rem;
+        font-weight: 700;
+
+        span {
+            color: var(--red);
+        }
+    }
+
+    .form-input {
+        font-size: 0.95rem;
+        padding: 0.85rem;
+        outline: none;
+        border: 1px solid var(--grey-5);
+        border-radius: 0.25rem;
+        color: var(--black);
+
+        &::placeholder {
+            font-weight: 500;
+            color: var(--grey-5);
+        }
+
+        &:focus {
+            outline: 1px solid black;
+        }
+    }
+
+    .error-text {
+        font-size: 0.9rem;
+        color: var(--red);
+    }
+}

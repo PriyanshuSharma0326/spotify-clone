@@ -4,9 +4,17 @@
     border-radius: 0.5rem;
     width: calc(100% - 347.75px - 0.5rem);
     max-height: 100%;
+    overflow-y: scroll;
 
     .playlists-list {
         margin-top: 4.75rem;
         padding: 0 1.25rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    &::-webkit-scrollbar {
+        display: none;
     }
 }

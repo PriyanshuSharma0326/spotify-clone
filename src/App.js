@@ -1,8 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import SharedLayout from './routes/shared-layout/shared-layout';
+import SharedLayout from './pages/shared-layout/shared-layout';
 import Root from "./routes/root/root.route";
+import AuthPage from "./routes/auth/authentication.route";
+import LoginPage from "./pages/login-page/login-page";
+import RegisterPage from "./pages/register-page/register-page";
 
 function App() {
     return (
@@ -17,12 +20,12 @@ function App() {
                 <Route path='search' element={<>Search Section</>} />
             </Route>
 
-            <Route path='/accounts'>
-                <Route index element={<>Account Page</>} />
+            <Route path='/accounts' element={<AuthPage />}>
+                <Route index element={<LoginPage />} />
 
-                <Route path='login' element={<>login</>} />
+                <Route path='login' element={<LoginPage />} />
 
-                <Route path='register' element={<>Register</>} />
+                <Route path='register' element={<RegisterPage />} />
             </Route>
         </Routes>
     );

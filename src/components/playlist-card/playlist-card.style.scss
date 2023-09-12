@@ -12,9 +12,14 @@
     img {
         width: 100%;
         height: auto;
+        border-radius: 0.25rem;
     }
 
     .playlist-card-text {
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+
         h1 {
             padding: 0.25rem 0;
             font-size: 0.95rem;
@@ -24,7 +29,7 @@
         p {
             line-height: 1.25rem;
             font-size: 0.8rem;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--grey-2);
         }
     }
