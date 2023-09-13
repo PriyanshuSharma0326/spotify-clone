@@ -37,9 +37,22 @@
         }
     }
 
-    .auth-buttons {
-        display: flex;
-        align-items: center;
-        gap: 2rem;
+    .submit-button {
+        width: fit-content;
+        background-color: var(--spotify-green-2);
+        color: var(--black);
+        font-weight: 600;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border-radius: 2rem;
+        transition: all 0.1s ease-in-out;
+        
+        font-size: 1.1rem;
+        padding: 1rem 2.5rem;
+
+        &:hover {
+            transform: scale(1.03);
+        }
     }
 }

@@ -8,11 +8,11 @@ function Footer() {
             <div className="footer-content">
                 <h1>preview of spotify</h1>
 
-                <p>Sign up to get unlimited songs and podcasts with occasional ads. No credit card needed.</p>
+                <p>Sign in to get unlimited songs and podcasts with occasional ads. No credit card needed.</p>
             </div>
 
             <Button 
-                buttonText='Sign up free' 
+                buttonText='Sign in here' 
                 type='button' 
                 buttonType='big' 
             />

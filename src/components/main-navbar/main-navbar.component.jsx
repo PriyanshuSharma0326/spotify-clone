@@ -4,13 +4,28 @@ import Button from '../button/button.component';
 
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 function MainNavbar() {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
-    const routeHandler = (route) => {
-        navigate(route);
+    const signInhandler = () => {
+        const clientId = 'f052378c9b7d4002b7254faa708ce08a';
+        const redirectUrl = 'http://localhost:3000/';
+        const apiUrl = 'https://accounts.spotify.com/authorize';
+
+        const scope = [
+            'user-read-email',
+            'user-read-private',
+            'user-modify-playback-state',
+            'user-read-currently-playing',
+            'user-read-recently-played',
+            'user-read-playback-position',
+            'user-top-read'
+        ];
+
+        window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join(' ')}&response_type=token&show_dialog=true`;
+        // console.log(`${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join(' ')}&response_type=token&show_dialog=true`);
     }
 
     return (
@@ -25,21 +40,9 @@ function MainNavbar() {
                 </button>
             </div>
 
-            <div className="auth-buttons">
-                <Button 
-                    buttonText='Sign up' 
-                    buttonType='noPadding' 
-                    type='button' 
-                    onClick={() => routeHandler('/accounts/register')} 
-                />
-
-                <Button 
-                    buttonText='Log in' 
-                    buttonType='big' 
-                    type='button' 
-                    onClick={() => routeHandler('/accounts/login')} 
-                />
-            </div>
+            <button className='submit-button' type='button' onClick={signInhandler}>
+                Sign in
+            </button>
         </div>
     )
 }
