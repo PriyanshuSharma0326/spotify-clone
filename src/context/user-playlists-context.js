@@ -1,34 +1,35 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { UserContext } from "./user-context";
+import { TokenContext } from "./token-context";
 import axios from "axios";
 
 export const UserPlaylistsContext = createContext({
-    userPlaylists: {},
-    setUserPlaylists: () => {}
+    userPlaylists: [],
+    setUserPlaylists: () => []
 });
 
 export const UserPlaylistsContextProvider = ({ children }) => {
-    const { user } = useContext(UserContext);
+    const { token } = useContext(TokenContext);
 
-    const [userPlaylists, setUserPlaylists] = useState({});
+    const [userPlaylists, setUserPlaylists] = useState([]);
 
     useEffect(() => {
         const getUserPlaylists = async () => {
             const response = await axios.get(
-                "https://api.spotify.com/v1/me/playlists",
+                "https://api.spotify.com/v1/me/playlists?limit=20&offset=0",
                 {
                     headers: {
-                        Authorization: "Bearer " + user,
+                        Authorization: `Bearer ${token}`,
                         "Content-Type": "application/json",
                     },
                 }
             );
 
-            console.log(response.data);
+            const { items } = response.data;
+            setUserPlaylists(items);
         }
 
-        user && getUserPlaylists();
-    }, [user]);
+        token && getUserPlaylists();
+    }, [token]);
 
     const contextValue = { userPlaylists };
 

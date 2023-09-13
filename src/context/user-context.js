@@ -1,4 +1,6 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import axios from "axios";
+import { TokenContext } from "./token-context";
 
 export const UserContext = createContext({
     user: null,
@@ -8,16 +10,27 @@ export const UserContext = createContext({
 export const UserContextProvider = ({ children }) => {
     const [user, setUser] = useState(null);
 
+    const { token } = useContext(TokenContext);
+
     useEffect(() => {
-        const hash = window.location.hash;
+        const getUser = async () => {
+            const response = await axios.get(
+                "https://api.spotify.com/v1/me",
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
 
-        if(hash) {
-            const token = hash.substring(1).split('&')[0].split('=')[1];
-            setUser(token);
+            setUser(response.data);
         }
-    }, [user]);
 
-    const contextValue = { user};
+        token && getUser();
+    }, [token]);
+
+    const contextValue = { user };
 
     return (
         <UserContext.Provider value={ contextValue }>

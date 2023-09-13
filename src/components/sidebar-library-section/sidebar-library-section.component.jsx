@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './sidebar-library-section.style.scss';
 import { Link } from 'react-router-dom';
 
@@ -8,8 +8,11 @@ import LanguageIcon from '@mui/icons-material/Language';
 
 import SidebarBanner from '../sidebar-banner/sidebar-banner.component';
 import SidebarLinks from '../sidebar-links/sidebar-links.component';
+import { UserContext } from '../../context/user-context';
 
 function SidebarLibrarySection() {
+    const { user } = useContext(UserContext);
+
     return (
         <div className='sidebar-library-section'>
             <Link className='sidebar-nav-link'
@@ -25,7 +28,7 @@ function SidebarLibrarySection() {
                 </button>
             </Link>
 
-            <div className="library-section-banners">
+            {!user && <div className="library-section-banners">
                 <SidebarBanner 
                     title='Create your first playlist' 
                     desc="It's easy, we'll help you" 
@@ -37,14 +40,14 @@ function SidebarLibrarySection() {
                     desc="We'll keep you updated on new episodes" 
                     buttonText='Browse podcasts' 
                 />
-            </div>
+            </div>}
 
-            <SidebarLinks />
+            {!user && <SidebarLinks />}
 
-            <button className='language-button'>
+            {!user && <button className='language-button'>
                 <LanguageIcon />
                 English
-            </button>
+            </button>}
         </div>
     )
 }
