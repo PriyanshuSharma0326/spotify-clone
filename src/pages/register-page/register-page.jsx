@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import './register-page.style.scss';
 import FacebookRoundedIcon from '@mui/icons-material/FacebookRounded';
 import FormInput from '../../components/form-input/form-input.somponent';
+import { useNavigate } from 'react-router-dom';
 
 function RegisterPage() {
+    const navigate = useNavigate();
+
     const defaultFormFields = {
         email: '',
         name: '',
@@ -19,6 +22,7 @@ function RegisterPage() {
     };
 
     const [formInputs, setFormInputs] = useState(defaultFormFields);
+
     const [formErrors, setFormErrors] = useState(defaultFormErrors);
 
     const changeHandler = (e) => {
@@ -26,12 +30,23 @@ function RegisterPage() {
         setFormInputs({...formInputs, [name]: value});
     }
 
-    const submitHandler = async (e) => {}
+    const submitHandler = async (e) => {
+        e.preventDefault();
+        console.log(formInputs);
+    }
+
+    const goToLogin = () => {
+        navigate('/accounts/login');
+    }
 
     return (
         <div className='register-page'>
             <div className="register-page-main">
-                <div className="login-options">
+                <div className="signup-options">
+                    <div className="logo-container">
+                        <img src="https://assets.stickpng.com/images/5ece4ff9123d6d0004ce5f89.png" alt="logo" />
+                    </div>
+
                     <h1>Sign up for free to start listening.</h1>
 
                     <button type='button' className='signup-button facebook'>
@@ -97,6 +112,32 @@ function RegisterPage() {
                             value: formInputs.name
                         }}
                     />
+
+                    <FormInput 
+                        labelText="What's your gender?" 
+                        inputType='radio' 
+                        errorText={formErrors.genderError} 
+                        inputOptions={{
+                            required: true,
+                            type: 'radio',
+                            name: 'gender',
+                            value1: 'Male',
+                            value2: 'Female',
+                            value3: 'Non-binary',
+                            value4: 'Other',
+                            value5: 'Prefer not to say',
+                            onChange: changeHandler,
+                            checked: formInputs.gender
+                        }}
+                    />
+
+                    <button className='submit-button' type='submit' onClick={submitHandler}>
+                        Sign up
+                    </button>
+
+                    <div className="go-to-login">
+                        <h1>Have an account? <span onClick={goToLogin}>Log in</span>.</h1>
+                    </div>
                 </form>
             </div>
         </div>
