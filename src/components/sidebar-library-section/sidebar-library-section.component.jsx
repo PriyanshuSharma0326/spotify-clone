@@ -9,6 +9,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import SidebarBanner from '../sidebar-banner/sidebar-banner.component';
 import SidebarLinks from '../sidebar-links/sidebar-links.component';
 import { UserContext } from '../../context/user-context';
+import ListPlaylist from '../list-playlist/list-playlist.component';
 
 function SidebarLibrarySection() {
     const { user } = useContext(UserContext);
@@ -28,26 +29,30 @@ function SidebarLibrarySection() {
                 </button>
             </Link>
 
-            {!user && <div className="library-section-banners">
-                <SidebarBanner 
-                    title='Create your first playlist' 
-                    desc="It's easy, we'll help you" 
-                    buttonText='Create playlist' 
-                />
+            {!user && <div className="library-no-login-content">
+                <div className="library-section-banners">
+                    <SidebarBanner 
+                        title='Create your first playlist' 
+                        desc="It's easy, we'll help you" 
+                        buttonText='Create playlist' 
+                    />
 
-                <SidebarBanner 
-                    title="Let's find some podcasts to follow" 
-                    desc="We'll keep you updated on new episodes" 
-                    buttonText='Browse podcasts' 
-                />
+                    <SidebarBanner 
+                        title="Let's find some podcasts to follow" 
+                        desc="We'll keep you updated on new episodes" 
+                        buttonText='Browse podcasts' 
+                    />
+                </div>
+
+                <SidebarLinks />
+
+                <button className='language-button'>
+                    <LanguageIcon />
+                    English
+                </button>
             </div>}
 
-            {!user && <SidebarLinks />}
-
-            {!user && <button className='language-button'>
-                <LanguageIcon />
-                English
-            </button>}
+            {user && <ListPlaylist />}
         </div>
     )
 }

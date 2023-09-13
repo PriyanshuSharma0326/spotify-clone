@@ -1,0 +1,10 @@
+.list-playlist {
+    display: flex;
+    flex-direction: column;
+    max-height: 28.25rem;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
