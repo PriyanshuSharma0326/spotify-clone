@@ -1,5 +1,7 @@
 .track-bar-container {
     display: flex;
+    align-items: center;
+    border-radius: 0.25rem;
 
     .count {
         width: 5%;
@@ -44,5 +46,9 @@
     .duration {
         width: 7%;
         padding: 0.5rem 0;
+    }
+    &:hover {
+        cursor: pointer;
+        background-color: var(--hover-grey);
     }
 }

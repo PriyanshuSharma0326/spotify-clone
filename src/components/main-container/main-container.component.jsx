@@ -3,13 +3,23 @@ import './main-container.style.scss';
 import MainNavbar from '../main-navbar/main-navbar.component';
 import PlaylistSection from '../playlist-section/playlist-section.component';
 import { PlaylistItemsContext } from '../../context/playlist-items-context';
+import { UserContext } from '../../context/user-context';
 
 function MainContainer() {
     const { playlistItems } = useContext(PlaylistItemsContext);
 
+    const { user } = useContext(UserContext);
+
     return (
         <div className='main-container'>
-            <MainNavbar />
+            {user ? 
+                <MainNavbar /> : 
+                <div className="hint-text">
+                    <h1>No playlists to show.</h1>
+
+                    <p>Sign in to Continue listening to your favorite songs.</p>
+                </div>
+            }
 
             <div className="playlists-list">
                 {playlistItems ? playlistItems.map(playlist => {
