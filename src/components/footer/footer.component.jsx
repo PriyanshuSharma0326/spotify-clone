@@ -1,8 +1,13 @@
 import React from 'react';
 import './footer.style.scss';
 import Button from '../button/button.component';
+import { signUserIn } from '../../utils/spotify-functions';
 
 function Footer() {
+    const signInhandler = () => {
+        signUserIn();
+    }
+
     return (
         <div className='footer'>
             <div className="footer-content">
@@ -15,6 +20,7 @@ function Footer() {
                 buttonText='Sign in here' 
                 type='button' 
                 buttonType='big' 
+                onClick={signInhandler}
             />
         </div>
     )

@@ -1,4 +1,4 @@
-.playlist-card {
+.track-card {
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -15,7 +15,7 @@
         border-radius: 0.25rem;
     }
 
-    .playlist-card-text {
+    .track-card-text {
         display: flex;
         flex-direction: column;
         gap: 0.35rem;

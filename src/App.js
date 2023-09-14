@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 import SharedLayout from './pages/shared-layout/shared-layout';
 import Root from "./routes/root/root.route";
+import Playlist from "./routes/playlist/playlist.route";
 
 function App() {
     return (
@@ -10,9 +11,7 @@ function App() {
             <Route path='/' element={<SharedLayout />}>
                 <Route index element={<Root />} />
 
-                <Route path='playlist' element={<>A Playlist</>} />
-
-                <Route path='section' element={<>Playlist Section</>} />
+                <Route path='playlist/*' element={<Playlist />} />
 
                 <Route path='search' element={<>Search Section</>} />
             </Route>

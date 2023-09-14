@@ -1,54 +1,49 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './playlist-section.style.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../button/button.component';
-import PlaylistCard from '../playlist-card/playlist-card.component';
+import TrackCard from '../track-card/track-card.component';
+import { TokenContext } from '../../context/token-context';
 
-function PlaylistSection() {
+function PlaylistSection({ playlistName, playlistTracks, playlistID }) {
+    const navigate = useNavigate();
+
+    function truncate(string, n) {
+        return string?.length > n ? string.substr(0, n-1) + '...' : string;
+    }
+
+    const { hash } = useContext(TokenContext);
+
+    const routeHandler = () => {
+        navigate(`/playlist/${playlistID}/${hash}`);
+    }
+
     return (
         <div className='playlist-section'>
             <div className="section-links">
-                <Link to='/section' className='section-title'>
-                    Spotify Playlists
+                <Link to={`/playlist/${playlistID}/${hash}`} className='section-title'>
+                    {playlistName}
                 </Link>
 
                 <Button 
                     buttonText='Show all' 
                     buttonType='noPaddingSmall' 
                     type='button' 
+                    onClick={routeHandler} 
                 />
             </div>
 
             <div className="playlists-container">
-                <PlaylistCard 
-                    playlistImageURL='https://i1.sndcdn.com/artworks-oPc3RHNk8inE57kd-RmdGSg-t500x500.jpg' 
-                    title="Today's Top Hits" 
-                    desc='Kick back to the best new and recent chill hits.' 
-                />
-
-                <PlaylistCard 
-                    playlistImageURL='https://i1.sndcdn.com/artworks-oPc3RHNk8inE57kd-RmdGSg-t500x500.jpg' 
-                    title='Colores' 
-                    desc='Studio album by J Balvin' 
-                />
-
-                <PlaylistCard 
-                    playlistImageURL='https://i1.sndcdn.com/artworks-oPc3RHNk8inE57kd-RmdGSg-t500x500.jpg' 
-                    title='Colores' 
-                    desc='Studio album by J Balvin' 
-                />
-
-                <PlaylistCard 
-                    playlistImageURL='https://i1.sndcdn.com/artworks-oPc3RHNk8inE57kd-RmdGSg-t500x500.jpg' 
-                    title='Colores' 
-                    desc='Studio album by J Balvin' 
-                />
-
-                <PlaylistCard 
-                    playlistImageURL='https://i1.sndcdn.com/artworks-oPc3RHNk8inE57kd-RmdGSg-t500x500.jpg' 
-                    title='Colores' 
-                    desc='Studio album by J Balvin' 
-                />
+                {playlistTracks.slice(0, 5).map(playlistTrack => {
+                    return (
+                        <TrackCard 
+                            key={playlistTrack.track.id} 
+                            trackImageURL={playlistTrack.track.album.images[0].url} 
+                            title={truncate(playlistTrack.track.name, 18)} 
+                            desc={playlistTrack.track.artists[0].name} 
+                        />
+                    )
+                })}
             </div>
         </div>
     )

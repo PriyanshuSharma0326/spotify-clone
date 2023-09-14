@@ -4,7 +4,7 @@ import PlaylistBar from '../playlist-bar/playlist-bar.component';
 import { UserPlaylistsContext } from '../../context/user-playlists-context';
 
 function ListPlaylist() {
-    const { userPlaylists} = useContext(UserPlaylistsContext);
+    const { userPlaylists } = useContext(UserPlaylistsContext);
 
     return (
         <div className='list-playlist'>
