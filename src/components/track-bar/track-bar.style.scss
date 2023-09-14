@@ -1,0 +1,48 @@
+.track-bar-container {
+    display: flex;
+
+    .count {
+        width: 5%;
+        font-size: 0.85rem;
+        font-weight: 500;
+        padding: 0.5rem 0;
+        text-align: center;
+    }
+
+    .track-info {
+        width: 40%;
+        padding: 0.5rem 0;
+        display: flex;
+
+        .track-details {
+            h1 {
+                font-size: 0.85rem;
+                font-weight: 500;
+            }
+
+            p {
+                font-size: 0.85rem;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .album-title {
+        width: 30%;
+        font-size: 0.85rem;
+        font-weight: 500;
+        padding: 0.5rem 0;
+    }
+
+    .date {
+        width: 18%;
+        font-size: 0.85rem;
+        font-weight: 500;
+        padding: 0.5rem 0;
+    }
+
+    .duration {
+        width: 7%;
+        padding: 0.5rem 0;
+    }
+}

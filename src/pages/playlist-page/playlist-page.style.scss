@@ -18,6 +18,8 @@
         .playlist-image-container {
             width: 14.5rem;
             line-height: 0;
+            border-radius: 20%;
+            box-shadow: 0 0 42px rgba(0, 0, 0, 0.7);
 
             img {
                 width: 100%;
@@ -47,21 +49,78 @@
             .playlist-description {
                 font-size: 0.8rem;
                 font-weight: 500;
-                color: --grey-2;
+                color: var(--white);
             }
 
             .playlist-by {
                 font-size: 0.9rem;
                 font-weight: 600;
+
+                .user {
+                    &:hover {
+                        cursor: pointer;
+                        text-decoration: underline;
+                    }
+                }
             }
         }
     }
 
-    .track-list {
-        padding: 0 1.25rem;
+    .track-list-container {
         display: flex;
         flex-direction: column;
-        gap: 2.5rem;
+        // gap: 2.5rem;
+        background-color: rgb(5, 5, 5, 0.5);
+
+        .track-list-header {
+            padding: 1.5rem;
+        }
+
+        .track-list-table-header {
+            display: flex;
+            color: var(--grey-2);
+            border-bottom: 1px solid var(--grey-5);
+            padding: 0 1.5rem;
+
+            .count-hash {
+                width: 5%;
+                font-size: 0.85rem;
+                font-weight: 500;
+                padding: 0.5rem 0;
+                text-align: center;
+            }
+
+            .title {
+                width: 40%;
+                font-size: 0.85rem;
+                font-weight: 500;
+                padding: 0.5rem 0;
+            }
+
+            .album-title {
+                width: 30%;
+                font-size: 0.85rem;
+                font-weight: 500;
+                padding: 0.5rem 0;
+            }
+
+            .date {
+                width: 18%;
+                font-size: 0.85rem;
+                font-weight: 500;
+                padding: 0.5rem 0;
+            }
+
+            .time-icon {
+                width: 7%;
+                padding: 0.5rem 0;
+            }
+        }
+
+        .track-list {
+            margin-top: 1rem;
+            padding: 0 1.5rem;
+        }
     }
 
     &::-webkit-scrollbar {
