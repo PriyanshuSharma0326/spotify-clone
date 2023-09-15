@@ -20,7 +20,7 @@ export const TokenContextProvider = ({ children }) => {
         }
     }, [token]);
 
-    const contextValue = { token, hash };
+    const contextValue = { token, hash, setToken, setHash };
 
     return (
         <TokenContext.Provider value={ contextValue }>

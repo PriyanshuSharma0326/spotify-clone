@@ -8,6 +8,7 @@ import { TokenContextProvider } from './context/token-context';
 import { UserPlaylistsContextProvider } from './context/user-playlists-context';
 import { UserContextProvider } from './context/user-context';
 import { PlaylistItemsContextProvider } from './context/playlist-items-context';
+import { CurrentTrackContextProvider } from './context/current-track-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,11 +16,13 @@ root.render(
         <Router>
             <TokenContextProvider>
                 <UserContextProvider>
-                    <UserPlaylistsContextProvider>
-                        <PlaylistItemsContextProvider>
-                            <App />
-                        </PlaylistItemsContextProvider>
-                    </UserPlaylistsContextProvider>
+                    <CurrentTrackContextProvider>
+                        <UserPlaylistsContextProvider>
+                            <PlaylistItemsContextProvider>
+                                <App />
+                            </PlaylistItemsContextProvider>
+                        </UserPlaylistsContextProvider>
+                    </CurrentTrackContextProvider>
                 </UserContextProvider>
             </TokenContextProvider>
         </Router>

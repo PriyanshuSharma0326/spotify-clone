@@ -1,7 +1,77 @@
 .player-container {
-    height: calc(11% - 0.5rem);
-    background-color: var(--grey-1);
+    height: calc(13% - 0.5rem);
     padding: 0.75rem 1rem;
     color: var(--white);
-    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+
+    .track-details {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        width: 30%;
+
+        .track-image {
+            width: 3.25rem;
+            line-height: 0;
+
+            img {
+                border-radius: 0.25rem;
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .track-title-and-artists {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+
+            .track-title {
+                font-size: 0.9rem;
+                font-weight: 500;
+            }
+
+            .track-artists {
+                font-size: 0.65rem;
+                font-weight: 500;
+                color: var(--grey-2);
+            }
+        }
+    }
+
+    .track-controls-container {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .track-controls {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            .prev-icon {
+                .MuiSvgIcon-root {
+                    font-size: 2rem;
+                }
+            }
+
+            .play-icon {
+                .MuiSvgIcon-root {
+                    font-size: 2.5rem;
+                }
+            }
+
+            .next-icon {
+                .MuiSvgIcon-root {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+
+    .track-volume-controls {
+        width: 30%;
+    }
 }

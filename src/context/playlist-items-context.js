@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { TokenContext } from "./token-context";
-import axios from "axios";
 import { UserPlaylistsContext } from "./user-playlists-context";
+import { getItemsFromPlaylist } from "../utils/spotify-functions";
 
 export const PlaylistItemsContext = createContext({
     playlistItems: [],
@@ -15,20 +15,9 @@ export const PlaylistItemsContextProvider = ({ children }) => {
     const [playlistItems, setPlaylistItems] = useState([]);
 
     useEffect(() => {
+
         const getPlaylistItems = async () => {
-            const updatedItems = await Promise.all(userPlaylists.map(async playlist => {
-                const response = await axios.get(
-                    `https://api.spotify.com/v1/playlists/${playlist.id}/tracks`,
-                    {
-                        headers: {
-                            Authorization: `Bearer ${token}`,
-                            "Content-Type": "application/json",
-                        },
-                    }
-                );
-                const { items } = response.data;
-                return { [playlist.name]: items, id: playlist.id };
-            }));
+            const updatedItems = await getItemsFromPlaylist(token, userPlaylists);
             setPlaylistItems(prevItems => [...prevItems, ...updatedItems]);
         }
 
