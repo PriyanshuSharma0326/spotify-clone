@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './player.style.scss';
 import { CurrentTrackContext } from '../../context/current-track-context';
 
@@ -6,6 +6,8 @@ import SkipPreviousIcon from '@mui/icons-material/SkipPrevious';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import PauseCircleIcon from '@mui/icons-material/PauseCircle';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+
 import { TokenContext } from '../../context/token-context';
 import { changeTrackState, goToTrack } from '../../utils/spotify-functions';
 
@@ -65,7 +67,16 @@ function Player() {
                 <div className="progress-bar"></div>
             </div>
 
-            <div className="track-volume-controls"></div>
+            <div className="track-volume-controls">
+                <div className="volume-controls">
+                    <div className="volume-icon">
+                        <VolumeUpIcon />
+                    </div>
+
+                    <div className="volume-progress-bar">
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }

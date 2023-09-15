@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { TokenContext } from "./token-context";
-import { getCurrentTrackInfo } from "../utils/spotify-functions";
+import { getCurrentTrackInfo, getPlaybackState } from "../utils/spotify-functions";
 
 export const CurrentTrackContext = createContext();
 
@@ -20,6 +20,15 @@ export const CurrentTrackContextProvider = ({ children }) => {
         token && getTrack();
         setButtonClicked(false);
     }, [token, buttonClicked]);
+
+    useEffect(() => {
+        const getTrackStatus = async () => {
+            const status = await getPlaybackState(token);
+            setPlayerState(status);
+        }
+
+        token && getTrackStatus();
+    }, [token]);
 
     const contextValue = {
         currentTrack,

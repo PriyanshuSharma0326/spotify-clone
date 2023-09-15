@@ -53,7 +53,12 @@
 
             .prev-icon {
                 .MuiSvgIcon-root {
-                    font-size: 2rem;
+                    font-size: 1.8rem;
+                    color: var(--grey-2);
+
+                    &:hover {
+                        color: var(--white);
+                    }
                 }
             }
 
@@ -65,7 +70,12 @@
 
             .next-icon {
                 .MuiSvgIcon-root {
-                    font-size: 2rem;
+                    font-size: 1.8rem;
+                    color: var(--grey-2);
+
+                    &:hover {
+                        color: var(--white);
+                    }
                 }
             }
         }
@@ -73,5 +83,20 @@
 
     .track-volume-controls {
         width: 30%;
+
+        .volume-controls {
+            .volume-icon {
+                .MuiSvgIcon-root {
+                    font-size: 1.25rem;
+                    color: var(--grey-2);
+
+                    &:hover {
+                        color: var(--white);
+                    }
+                }
+            }
+
+            .volume-progress-bar {}
+        }
     }
 }

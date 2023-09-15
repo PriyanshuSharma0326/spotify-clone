@@ -14,6 +14,7 @@ const signUserIn = () => {
         'user-read-playback-position',
         'user-top-read',
         'playlist-read-private',
+        'user-read-playback-state',
     ];
 
     window.location.href = `${apiUrl}?client_id=${clientId}&redirect_uri=${redirectUrl}&scope=${scope.join(' ')}&response_type=token&show_dialog=true`;
@@ -81,6 +82,20 @@ const getPlaylistsOfCurrentUser = async (token) => {
     return items;
 }
 
+const getPlaybackState = async (token) => {
+    const response = await axios.get(
+        "https://api.spotify.com/v1/me/player",
+        {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+        }
+    );
+
+    return response.data.is_playing;
+}
+
 const goToTrack = async (token, moveType) => {
     await axios.post(
         `https://api.spotify.com/v1/me/player/${moveType}`,
@@ -115,4 +130,5 @@ export {
     getPlaylistsOfCurrentUser,
     goToTrack,
     changeTrackState,
+    getPlaybackState,
 }
