@@ -15,6 +15,7 @@ function ListPlaylist() {
                         playlistName={playlist.name} 
                         imageURL={playlist.images[0].url} 
                         totalSongs={playlist.tracks.total} 
+                        playlistID={playlist.id} 
                     />
                 )
             })}

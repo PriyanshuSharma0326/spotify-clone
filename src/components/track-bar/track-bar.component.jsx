@@ -19,7 +19,7 @@ function TrackBar({ track, index }) {
 
             <h1 className="track-info">
                 <div className="track-image">
-                    <img src="" alt="" />
+                    <img src={track.track.album.images[0].url} alt="" />
                 </div>
 
                 <div className="track-details">
