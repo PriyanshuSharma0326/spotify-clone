@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import './sidebar-library-section.style.scss';
-import { Link } from 'react-router-dom';
 
 import PlaylistPlayIcon from '@mui/icons-material/PlaylistPlay';
 import AddIcon from '@mui/icons-material/Add';
