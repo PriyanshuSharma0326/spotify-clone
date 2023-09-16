@@ -8,16 +8,23 @@ import { playTrack } from '../../utils/spotify-functions';
 
 function TrackCard({ track }) {
     const { token } = useContext(TokenContext);
-    const { setButtonClicked, playerState, setPlayerState } = useContext(CurrentTrackContext);
+    const {
+        currentTrack,
+        setButtonClicked,
+        playerState,
+        setPlayerState
+    } = useContext(CurrentTrackContext);
 
     const playThisTrack = async (track) => {
-        const res = await playTrack(token, track);
-        if(!playerState) {
-            setPlayerState(true);
-        }
-        setButtonClicked(true);
+        if(currentTrack) {
+            await playTrack(token, track);
 
-        console.log(res.status);
+            if(!playerState) {
+                setPlayerState(true);
+            }
+
+            setButtonClicked(true);
+        }
     }
 
     function truncate(string, n) {

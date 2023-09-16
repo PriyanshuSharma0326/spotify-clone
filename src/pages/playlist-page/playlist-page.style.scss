@@ -79,11 +79,8 @@
         flex-direction: column;
         background-color: rgb(5, 5, 5, 0.5);
 
-        .track-list-header {
-            padding: 1.5rem;
-        }
-
         .track-list-table-header {
+            padding-top: 0.8rem;
             display: flex;
             color: var(--grey-2);
             border-bottom: 1px solid var(--grey-5);
@@ -125,6 +122,14 @@
                 .MuiSvgIcon-root {
                     font-size: 1.25rem;
                 }
+            }
+
+            &.fixed-header {
+                position: fixed;
+                margin: 0;
+                width: calc(100% - 23.75rem);
+                top: 4.5rem;
+                background-color: var(--black);
             }
         }
 

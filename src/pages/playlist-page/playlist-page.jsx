@@ -15,6 +15,8 @@ function PlaylistPage() {
 
     const { userPlaylists } = useContext(UserPlaylistsContext);
     const { playlistItems } = useContext(PlaylistItemsContext);
+    const { containerRef, setDarken, fixed, setFixed } = useContext(StyleContext);
+
     const [RGB, setRGB] = useState([]);
 
     const backGroundStyle = {background: `linear-gradient(0deg, rgba(10, 10, 10, 1) 0%, rgba(${RGB[0]}, ${RGB[1]}, ${RGB[2]}, 1) 100%)`};
@@ -34,10 +36,7 @@ function PlaylistPage() {
         getProminentcolor();
     }, [playlist.images]);
 
-    const { containerRef, setDarken } = useContext(StyleContext);
-
     const container = containerRef.current;
-    console.log(container);
 
     const transitionNavbar = () => {
         if(container?.scrollTop > 175) {
@@ -45,6 +44,13 @@ function PlaylistPage() {
         }
         else {
             setDarken(false);
+        }
+
+        if(container?.scrollTop > 267) {
+            setFixed(true);
+        }
+        else {
+            setFixed(false);
         }
     }
 
@@ -86,9 +92,7 @@ function PlaylistPage() {
             </div>
 
             <div className="track-list-container">
-                <div className="track-list-header">Hello</div>
-
-                <div className="track-list-table-header">
+                <div className={`track-list-table-header ${fixed && 'fixed-header'}`}>
                     <h1 className="count-hash">#</h1>
 
                     <h1 className="title">Title</h1>

@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { TokenContext } from "./token-context";
-import { getCurrentTrackInfo, getPlaybackState, getVolume } from "../utils/spotify-functions";
+import { getCurrentTrackInfo, getPlaybackState, setVolume } from "../utils/spotify-functions";
 
 export const CurrentTrackContext = createContext();
 
@@ -9,14 +9,21 @@ export const CurrentTrackContextProvider = ({ children }) => {
     const [buttonClicked, setButtonClicked] = useState(false);
     const [playerState, setPlayerState] = useState(false);
 
+    const [audio, setAudio] = useState(60);
+
     const { token } = useContext(TokenContext);
 
     useEffect(() => {
         const getTrack = async () => {
-            const track = await getCurrentTrackInfo(token);
-            setCurrentTrack(track);
+            const res = await getCurrentTrackInfo(token);
+            if(!res) {
+                setCurrentTrack(null);
+            }
+            else if(res) {
+                setCurrentTrack(res);
+            }
         }
-        
+
         token && getTrack();
         setButtonClicked(false);
     }, [token, buttonClicked]);
@@ -31,12 +38,15 @@ export const CurrentTrackContextProvider = ({ children }) => {
     }, [token]);
 
     useEffect(() => {
-        const getVolumeState = async () => {
-            await getVolume(token, 60);
+        const setVolumeState = async () => {
+            const res = await setVolume(token, audio);
+            if (!res) {
+                setCurrentTrack(null);
+            }
         }
 
-        token && getVolumeState();
-    }, [token, currentTrack]);
+        token && setVolumeState();
+    }, [token, audio]);
 
     const contextValue = {
         currentTrack,
@@ -44,6 +54,8 @@ export const CurrentTrackContextProvider = ({ children }) => {
         setButtonClicked,
         playerState,
         setPlayerState,
+        audio,
+        setAudio,
     };
 
     return (

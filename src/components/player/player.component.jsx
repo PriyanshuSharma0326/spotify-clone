@@ -7,12 +7,21 @@ import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import PauseCircleIcon from '@mui/icons-material/PauseCircle';
 import SkipNextIcon from '@mui/icons-material/SkipNext';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import VolumeOffIcon from '@mui/icons-material/VolumeOff';
 
 import { TokenContext } from '../../context/token-context';
 import { changeTrackState, goToTrack } from '../../utils/spotify-functions';
 
 function Player() {
-    const { currentTrack, setButtonClicked, playerState, setPlayerState } = useContext(CurrentTrackContext);
+    const {
+        currentTrack,
+        setButtonClicked,
+        playerState,
+        setPlayerState,
+        audio,
+        setAudio
+    } = useContext(CurrentTrackContext);
+
     const { token } = useContext(TokenContext);
 
     const listOfArtists = currentTrack?.album.artists.map(artist => 
@@ -20,20 +29,28 @@ function Player() {
     );
 
     const changeTrack = async (type) => {
-        await goToTrack(token, type);
-        if(!playerState) {
-            setPlayerState(true);
+        if(currentTrack) {
+            await goToTrack(token, type);
+
+            if(!playerState) {
+                setPlayerState(true);
+            }
+
+            setButtonClicked(true);
         }
-        setButtonClicked(true);
     }
 
     const changePlayingStateOfTrack = async () => {
-        const state = playerState ? "pause" : "play";
-        await changeTrackState(token, state);
-        setPlayerState(!playerState);
+        if(currentTrack) {
+            const state = playerState ? "pause" : "play";
+            await changeTrackState(token, state);
+            setPlayerState(!playerState);
+        }
     }
 
-    const volume = 30;
+    const setVolumeOfMusic = (audioVal) => {
+        currentTrack && setAudio(audioVal);
+    }
 
     return (
         <div className='player-container'>
@@ -72,15 +89,14 @@ function Player() {
             <div className="track-volume-controls">
                 <div className="volume-controls">
                     <div className="volume-icon">
-                        <VolumeUpIcon />
-                    </div>
-
-                    <div className="volume-progress-bar">
-                        <div className="volume-progress"
-                            style={{width: `${volume}%`}} 
-                        >
-                            <div className="volume-progress-bar-thumb"></div>
-                        </div>
+                        {audio > 0 ? 
+                            <VolumeUpIcon 
+                                onClick={() => setVolumeOfMusic(0)} 
+                            /> : 
+                            <VolumeOffIcon 
+                                onClick={() => setVolumeOfMusic(60)} 
+                            />
+                        }
                     </div>
                 </div>
             </div>

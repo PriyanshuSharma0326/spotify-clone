@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import './sidebar-nav.style.scss';
 import HomeIcon from '@mui/icons-material/Home';
-import SearchIcon from '@mui/icons-material/Search';
 import { Link, useLocation } from 'react-router-dom';
 import { TokenContext } from '../../context/token-context';
 
@@ -17,12 +16,6 @@ function SidebarNav() {
                 <HomeIcon />
 
                 <h1 className="sidebar-link-text">Home</h1>
-            </Link>
-
-            <Link to={`/search/${hash}`} className={`sidebar-nav-link ${path === '/search/' && 'active'}`}>
-                <SearchIcon />
-
-                <h1 className="sidebar-link-text">Search</h1>
             </Link>
         </div>
     )

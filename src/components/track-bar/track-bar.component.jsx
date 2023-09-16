@@ -8,7 +8,7 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 function TrackBar({ track, index }) {
     const { token } = useContext(TokenContext);
-    const { setButtonClicked, playerState, setPlayerState } = useContext(CurrentTrackContext);
+    const { currentTrack, setButtonClicked, playerState, setPlayerState } = useContext(CurrentTrackContext);
 
     const date = new Date(track.added_at);
 
@@ -22,13 +22,15 @@ function TrackBar({ track, index }) {
     const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
 
     const playThisTrack = async (track) => {
-        const res = await playTrack(token, track);
-        if(!playerState) {
-            setPlayerState(true);
-        }
-        setButtonClicked(true);
+        if(currentTrack) {
+            await playTrack(token, track);
 
-        console.log(res.status);
+            if(!playerState) {
+                setPlayerState(true);
+            }
+
+            setButtonClicked(true);
+        }
     }
 
     return (

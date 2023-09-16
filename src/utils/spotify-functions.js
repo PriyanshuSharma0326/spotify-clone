@@ -21,32 +21,42 @@ const signUserIn = () => {
 }
 
 const getUserInfo = async (token) => {
-    const response = await axios.get(
-        "https://api.spotify.com/v1/me",
-        {
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json",
-            },
-        }
-    );
-
-    return response.data;
+    try {
+        const response = await axios.get(
+            "https://api.spotify.com/v1/me",
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+    
+        return response.data;
+    }
+    catch(err) {
+        return;
+    }
 }
 
 const getCurrentTrackInfo = async (token) => {
-    const response = await axios.get(
-        "https://api.spotify.com/v1/me/player/currently-playing",
-        {
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json",
-            },
-        }
-    );
-
-    const { item } = response.data;
-    return item;
+    try {
+        const response = await axios.get(
+            "https://api.spotify.com/v1/me/player/currently-playing",
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+    
+        const { item } = response.data;
+        return item;
+    }
+    catch(err) {
+        return;
+    }
 }
 
 const getItemsFromPlaylist = async (token, playlists) => {
@@ -146,17 +156,24 @@ const playTrack = async (token, track) => {
     return response;
 }
 
-const getVolume = async (token, val) => {
-    await axios.put(
-        `https://api.spotify.com/v1/me/player/volume/?volume_percent=${val}`,
-        {},
-        {
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json",
-            },
-        }
-    );
+const setVolume = async (token, val) => {
+    try {
+        const response = await axios.put(
+            `https://api.spotify.com/v1/me/player/volume/?volume_percent=${val}`,
+            {},
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+
+        return response;
+    }
+    catch(err) {
+        return;
+    }
 }
 
 export {
@@ -169,5 +186,5 @@ export {
     changeTrackState,
     getPlaybackState,
     playTrack,
-    getVolume,
+    setVolume,
 }

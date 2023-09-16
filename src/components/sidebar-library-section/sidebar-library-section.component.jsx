@@ -16,9 +16,7 @@ function SidebarLibrarySection() {
 
     return (
         <div className='sidebar-library-section'>
-            <Link className='sidebar-nav-link'
-                // to='/' className={`sidebar-nav-link ${path === '/' && 'active'}`}
-            >
+            <li className='sidebar-nav-link'>
                 <div className="link-content">
                     <PlaylistPlayIcon />
                     <h1 className="sidebar-link-text">Your Library</h1>
@@ -27,7 +25,7 @@ function SidebarLibrarySection() {
                 <button type='button' className='add-playlist-button'>
                     <AddIcon />
                 </button>
-            </Link>
+            </li>
 
             {!user && <div className="library-no-login-content">
                 <div className="library-section-banners">
