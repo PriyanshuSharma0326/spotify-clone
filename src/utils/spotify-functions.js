@@ -122,6 +122,43 @@ const changeTrackState = async (token, state) => {
     );
 }
 
+const playTrack = async (token, track) => {
+    const context_uri = track.track.album.uri;
+    const track_number = track.track.track_number;
+
+    const response = await axios.put(
+        `https://api.spotify.com/v1/me/player/play`,
+        {
+            context_uri: context_uri,
+            offset: {
+                position: track_number - 1,
+            },
+            position_ms: 0,
+        },
+        {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+        }
+    );
+
+    return response;
+}
+
+const getVolume = async (token, val) => {
+    await axios.put(
+        `https://api.spotify.com/v1/me/player/volume/?volume_percent=${val}`,
+        {},
+        {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                "Content-Type": "application/json",
+            },
+        }
+    );
+}
+
 export {
     signUserIn,
     getUserInfo,
@@ -131,4 +168,6 @@ export {
     goToTrack,
     changeTrackState,
     getPlaybackState,
+    playTrack,
+    getVolume,
 }

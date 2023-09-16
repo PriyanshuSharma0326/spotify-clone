@@ -8,6 +8,7 @@ import TrackBar from '../../components/track-bar/track-bar.component';
 import AccessTime from '@mui/icons-material/AccessTime';
 
 import { prominent } from 'color.js';
+import { StyleContext } from '../../context/style-context';
 
 function PlaylistPage() {
     const { playlistID } = useParams();
@@ -33,8 +34,30 @@ function PlaylistPage() {
         getProminentcolor();
     }, [playlist.images]);
 
+    const { containerRef, setDarken } = useContext(StyleContext);
+
+    const container = containerRef.current;
+    console.log(container);
+
+    const transitionNavbar = () => {
+        if(container?.scrollTop > 175) {
+            setDarken(true);
+        }
+        else {
+            setDarken(false);
+        }
+    }
+
+    useEffect(() => {
+        container?.addEventListener('scroll', transitionNavbar);
+
+        return () => {
+            container?.removeEventListener('scroll', transitionNavbar);
+        }
+    }, )
+
     return (
-        <div className='playlist-page-container'>
+        <div className='playlist-page-container' ref={containerRef}>
             <MainNavbar />
 
             <div 
@@ -47,7 +70,7 @@ function PlaylistPage() {
                     </div>
 
                     <div className="playlist-data-container">
-                        <h2 className="list-type">{playlist.type}</h2>
+                        <h2 className="list-type">{playlist.type.charAt(0).toUpperCase() + playlist.type.slice(1)}</h2>
 
                         <h1 className="playlist-name">{playlist.name}</h1>
 
@@ -61,7 +84,7 @@ function PlaylistPage() {
                     </div>
                 </div>
             </div>
-            
+
             <div className="track-list-container">
                 <div className="track-list-header">Hello</div>
 

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import './player.style.scss';
 import { CurrentTrackContext } from '../../context/current-track-context';
 
@@ -33,6 +33,8 @@ function Player() {
         setPlayerState(!playerState);
     }
 
+    const volume = 30;
+
     return (
         <div className='player-container'>
             <div className="track-details">
@@ -55,7 +57,7 @@ function Player() {
                         <SkipPreviousIcon />
                     </div>
 
-                    <div className="play-icon" onClick={changePlayingStateOfTrack}>
+                    <div className="play-pause-icons" onClick={changePlayingStateOfTrack}>
                         {playerState ? <PauseCircleIcon /> : <PlayCircleIcon />}
                     </div>
 
@@ -74,6 +76,11 @@ function Player() {
                     </div>
 
                     <div className="volume-progress-bar">
+                        <div className="volume-progress"
+                            style={{width: `${volume}%`}} 
+                        >
+                            <div className="volume-progress-bar-thumb"></div>
+                        </div>
                     </div>
                 </div>
             </div>

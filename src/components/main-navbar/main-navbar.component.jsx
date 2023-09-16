@@ -5,16 +5,19 @@ import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { UserContext } from '../../context/user-context';
 import { signUserIn } from '../../utils/spotify-functions';
+import { StyleContext } from '../../context/style-context';
 
 function MainNavbar() {
     const { user } = useContext(UserContext);
+
+    const { darken } = useContext(StyleContext);
 
     const signInhandler = () => {
         signUserIn();
     }
 
     return (
-        <div className="main-navbar">
+        <div className={`main-navbar ${darken && 'navbar-black'}`}>
             <div className="navigation-buttons-container">
                 <button className='navigation-button'>
                     <ChevronLeftIcon />

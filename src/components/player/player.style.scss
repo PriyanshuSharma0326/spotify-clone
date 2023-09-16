@@ -62,9 +62,20 @@
                 }
             }
 
-            .play-icon {
+            .play-pause-icons {
+                border-radius: 50%;
+                width: 2rem;
+                height: 2rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
                 .MuiSvgIcon-root {
-                    font-size: 2.5rem;
+                    font-size: 2.4rem;
+
+                    &:hover {
+                        transform: scale(1.05);
+                    }
                 }
             }
 
@@ -85,6 +96,10 @@
         width: 30%;
 
         .volume-controls {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
             .volume-icon {
                 .MuiSvgIcon-root {
                     font-size: 1.25rem;
@@ -96,7 +111,41 @@
                 }
             }
 
-            .volume-progress-bar {}
+            .volume-progress-bar {
+                width: 25%;
+                height: 4px;
+                background-color: var(--grey-2);
+                position: relative;
+                border-radius: 0.125rem;
+
+                .volume-progress {
+                    position: absolute;
+                    height: 100%;
+                    background-color: var(--white);
+                    border-radius: 0.125rem;
+
+                    .volume-progress-bar-thumb {
+                        position: absolute;
+                        width: 0.85rem;
+                        height: 0.85rem;
+                        border-radius: 50%;
+                        background-color: var(--white);;
+                        top: -0.3rem;
+                        right: -0.4rem;
+                        visibility: hidden;
+                    }
+                }
+
+                &:hover {
+                    .volume-progress {
+                        background-color: var(--spotify-green-1);
+                    }
+
+                    .volume-progress-bar-thumb {
+                        visibility: visible;
+                    }
+                }
+            }
         }
     }
 }

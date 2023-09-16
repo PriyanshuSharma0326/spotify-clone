@@ -9,6 +9,7 @@ import { UserPlaylistsContextProvider } from './context/user-playlists-context';
 import { UserContextProvider } from './context/user-context';
 import { PlaylistItemsContextProvider } from './context/playlist-items-context';
 import { CurrentTrackContextProvider } from './context/current-track-context';
+import { StyleContextProvider } from './context/style-context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,7 +20,9 @@ root.render(
                     <CurrentTrackContextProvider>
                         <UserPlaylistsContextProvider>
                             <PlaylistItemsContextProvider>
-                                <App />
+                                <StyleContextProvider>
+                                    <App />
+                                </StyleContextProvider>
                             </PlaylistItemsContextProvider>
                         </UserPlaylistsContextProvider>
                     </CurrentTrackContextProvider>

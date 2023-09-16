@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { TokenContext } from "./token-context";
-import { getCurrentTrackInfo, getPlaybackState } from "../utils/spotify-functions";
+import { getCurrentTrackInfo, getPlaybackState, getVolume } from "../utils/spotify-functions";
 
 export const CurrentTrackContext = createContext();
 
@@ -29,6 +29,14 @@ export const CurrentTrackContextProvider = ({ children }) => {
 
         token && getTrackStatus();
     }, [token]);
+
+    useEffect(() => {
+        const getVolumeState = async () => {
+            await getVolume(token, 60);
+        }
+
+        token && getVolumeState();
+    }, [token, currentTrack]);
 
     const contextValue = {
         currentTrack,

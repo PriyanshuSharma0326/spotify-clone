@@ -3,13 +3,31 @@
     align-items: center;
     border-radius: 0.25rem;
 
+    &.inactive {
+        opacity: 0.3;
+        pointer-events: none;
+    }
+
     .count {
         width: 5%;
-        font-size: 0.95rem;
-        font-weight: 500;
         padding: 0.5rem 0;
         text-align: center;
         color: var(--grey-2);
+
+        h1 {
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        .MuiSvgIcon-root {
+            font-size: 1.35rem;
+            display: none;
+            color: var(--grey-2);
+
+            &:hover {
+                color: var(--white);
+            }
+        }
     }
 
     .track-info {
@@ -90,7 +108,15 @@
 
     &:hover {
         background-color: var(--hover-grey);
-    }
 
-    &:hover {}
+        .count {
+            h1 {
+                display: none;
+            }
+
+            .MuiSvgIcon-root {
+                display: inline;
+            }
+        }
+    }
 }

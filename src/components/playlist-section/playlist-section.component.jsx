@@ -8,10 +8,6 @@ import { TokenContext } from '../../context/token-context';
 function PlaylistSection({ playlistName, playlistTracks, playlistID }) {
     const navigate = useNavigate();
 
-    function truncate(string, n) {
-        return string?.length > n ? string.substr(0, n-1) + '...' : string;
-    }
-
     const { hash } = useContext(TokenContext);
 
     const routeHandler = () => {
@@ -38,9 +34,7 @@ function PlaylistSection({ playlistName, playlistTracks, playlistID }) {
                     return (
                         <TrackCard 
                             key={playlistTrack.track.id} 
-                            trackImageURL={playlistTrack.track.album.images[0].url} 
-                            title={truncate(playlistTrack.track.name, 18)} 
-                            desc={playlistTrack.track.artists[0].name} 
+                            track={playlistTrack} 
                         />
                     )
                 })}

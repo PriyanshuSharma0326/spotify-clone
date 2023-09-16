@@ -1,7 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './track-bar.style.scss';
+import { playTrack } from '../../utils/spotify-functions';
+import { TokenContext } from '../../context/token-context';
+import { CurrentTrackContext } from '../../context/current-track-context';
+
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
 function TrackBar({ track, index }) {
+    const { token } = useContext(TokenContext);
+    const { setButtonClicked, playerState, setPlayerState } = useContext(CurrentTrackContext);
+
     const date = new Date(track.added_at);
 
     const comparisonDate = new Date("2010-01-01");
@@ -13,9 +21,26 @@ function TrackBar({ track, index }) {
 
     const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
 
+    const playThisTrack = async (track) => {
+        const res = await playTrack(token, track);
+        if(!playerState) {
+            setPlayerState(true);
+        }
+        setButtonClicked(true);
+
+        console.log(res.status);
+    }
+
     return (
-        <div className='track-bar-container'>
-            <h1 className="count">{index}</h1>
+        <div className={`track-bar-container ${track.track.available_markets.length === 0 && 'inactive'}`}>
+            <div className="count">
+                <h1>
+                    {index}
+                </h1>
+                <PlayArrowIcon 
+                    onClick={() => track.track.available_markets.length !== 0 && playThisTrack(track)} 
+                />
+            </div>
 
             <h1 className="track-info">
                 <div className="track-image">
