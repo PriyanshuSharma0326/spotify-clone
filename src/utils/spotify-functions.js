@@ -2,7 +2,7 @@ import axios from "axios";
 
 const signUserIn = () => {
     const clientId = process.env.REACT_APP_CLIENT_ID;
-    const redirectUrl = 'http://localhost:3000/';
+    const redirectUrl = process.env.REACT_APP_REDIRECT_URI;
     const apiUrl = 'https://accounts.spotify.com/authorize';
 
     const scope = [
