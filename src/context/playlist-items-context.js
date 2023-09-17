@@ -15,7 +15,6 @@ export const PlaylistItemsContextProvider = ({ children }) => {
     const [playlistItems, setPlaylistItems] = useState([]);
 
     useEffect(() => {
-
         const getPlaylistItems = async () => {
             const updatedItems = await getItemsFromPlaylist(token, userPlaylists);
             setPlaylistItems(prevItems => [...prevItems, ...updatedItems]);
