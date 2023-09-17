@@ -1,70 +1,106 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Melofy (A Spotify Clone)
 
-## Available Scripts
+![Site preview](./public/media/desktop-design.png)
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [About](#about)
+- [Features](#features)
+- [Contact](#contact)
+- [Social](#social)
+- [Setup](#setup)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## About
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Clone web application of Spotify.com, developed using the React library and styled using SASS for improved maintainability and organization of CSS code. The application seamlessly integrates with the Spotify API, allowing users to listen to their favorite music tracks, albums, and playlists. Users can log in to their Spotify accounts, access personalized playlists, and explore their Spotify music library. The app features a user-friendly and responsive design, making it accessible across various devices.
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Spotify Integration**: Seamlessly connect to the Spotify API to browse and stream music tracks, albums, and playlists.
 
-### `npm run build`
+- **User Authentication**: Securely log in to your Spotify account and access personalized content.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Interactive User Interface**: Enjoy an interactive and responsive user interface for a smooth user experience.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **SASS Styling**: The application is styled using SASS for organized and maintainable CSS code.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Cross-Device Compatibility**: Access the app on various devices, ensuring a consistent experience.
 
-### `npm run eject`
+- **User-Friendly Design**: Benefit from an intuitive and user-friendly design for efficient navigation.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Context API**: Efficiently manage application state and share it across components using React's Context API.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Route Handling**: Implement client-side routing for smooth navigation between pages.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **API Requests**: Make API requests to the Spotify API for data retrieval and updates.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Customizable Styling**: Easily modify and customize the styling to suit your preferences.
 
-## Learn More
+## Contact
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Feel free to reach out to me with any inquiries, opportunities, or collaborations. You can contact me at:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Email: [priyanshusharma0326@gmail.com](mailto:priyanshusharma0326@gmail.com)
+- LinkedIn: [Priyanshu Sharma](https://www.linkedin.com/in/priyanshusharma0326)
+- Portfolio: [portfolio-xtechilad.vercel.app](https://portfolio-xtechilad.vercel.app/)
 
-### Code Splitting
+## Social
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Connect with me on social media:
 
-### Analyzing the Bundle Size
+- Twitter: [@xtechilad](https://twitter.com/xtechilad)
+- Instagram: [@xtechilad](https://www.instagram.com/xtechilad)
+- GitHub: [@priyanshusharma0326](https://github.com/priyanshusharma0326)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Let's engage, share ideas, and stay connected!
 
-### Making a Progressive Web App
+## Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Clone the project
 
-### Advanced Configuration
+```bash
+  git clone https://github.com/PriyanshuSharma0326/spotify-clone.git
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Go to the project directory
+
+```bash
+  cd spotify-clone/
+```
+
+Install dependencies
+
+```bash
+  npm i react
+  npm i axios
+  npm i color.js
+  npm i react-dom
+  npm i react-router-dom
+  npm i react react-dom
+  npm i react-scripts
+  npm i web-vitals
+```
+
+Start the server
+
+```bash
+  npm start
+```
+### Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`REACT_APP_CLIENT_ID`
+
+`REACT_APP_REDIRECT_URI`
+
+
+### Tech Stack
+
+**Client:** React, context API, SASS, Spotify API, React Router, Axios
+
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Deploy this project on Vercel.
