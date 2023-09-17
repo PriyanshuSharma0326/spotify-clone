@@ -31,7 +31,11 @@ function MainContainer() {
                             playlistID={playlist.id} 
                         />
                     )
-                }) : <></>
+                }) : 
+                <div className='no-playlist'>
+                    <h1>Looks like you don't have any playlists in your Spotify account</h1>
+                    <p>Add some playlists in your spotify account to continue</p>
+                </div>
                 }
             </div>
         </div>

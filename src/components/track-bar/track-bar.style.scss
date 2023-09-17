@@ -55,7 +55,10 @@
             h1 {
                 font-size: 0.9rem;
                 font-weight: 500;
-                width: fit-content;
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
 
                 &:hover {
                     cursor: pointer;
@@ -67,7 +70,10 @@
                 font-size: 0.85rem;
                 font-weight: 500;
                 color: var(--grey-2);
-                width: fit-content;
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
 
                 &:hover {
                     cursor: pointer;

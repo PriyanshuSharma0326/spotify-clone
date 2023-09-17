@@ -7,19 +7,26 @@ function ListPlaylist() {
     const { userPlaylists } = useContext(UserPlaylistsContext);
 
     return (
-        <div className='list-playlist'>
-            {userPlaylists.map(playlist => {
-                return (
-                    <PlaylistBar 
-                        key={playlist.id} 
-                        playlistName={playlist.name} 
-                        imageURL={playlist.images[0].url} 
-                        totalSongs={playlist.tracks.total} 
-                        playlistID={playlist.id} 
-                    />
-                )
-            })}
-        </div>
+        <>
+            {userPlaylists ? <div className='list-playlist'>
+                {userPlaylists.map(playlist => {
+                    return (
+                        <PlaylistBar 
+                            key={playlist.id} 
+                            playlistName={playlist.name} 
+                            imageURL={playlist.images[0].url} 
+                            totalSongs={playlist.tracks.total} 
+                            playlistID={playlist.id} 
+                        />
+                    )
+                })}
+            </div> : 
+            <div className="no-playlists">
+                <h1>No playlist available</h1>
+                <p>Add some playlists to continue</p>
+            </div>
+            }
+        </>
     )
 }
 

@@ -30,8 +30,18 @@ function MainNavbar() {
 
             {!user ? 
                 <button className='submit-button' type='button' onClick={signInhandler}>Sign in</button> : 
-                <div className="user-image">
-                    <img src={user.images[0].url} alt="" />
+                <div className='user-info'>
+                    {user.product === 'premium' && 
+                    <div className="premium">
+                        <h1>Premium</h1>
+                    </div>}
+
+                    <a className="user" href={`${user.external_urls.spotify}`} target='_blannk'>
+                        <h1>{user.display_name}</h1>
+                        <div className="user-image">
+                            <img src={user.images[0].url} alt="" />
+                        </div>
+                    </a>
                 </div>
             }
         </div>
