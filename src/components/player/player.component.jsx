@@ -43,8 +43,8 @@ function Player() {
     const changePlayingStateOfTrack = async () => {
         if(currentTrack) {
             const state = playerState ? "pause" : "play";
-            await changeTrackState(token, state);
-            setPlayerState(!playerState);
+            const res = await changeTrackState(token, state);
+            (res !== undefined) && setPlayerState(!playerState);
         }
     }
 

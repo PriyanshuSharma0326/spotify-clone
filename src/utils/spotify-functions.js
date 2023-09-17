@@ -120,16 +120,23 @@ const goToTrack = async (token, moveType) => {
 }
 
 const changeTrackState = async (token, state) => {
-    await axios.put(
-        `https://api.spotify.com/v1/me/player/${state}`,
-        {},
-        {
-            headers: {
-                Authorization: `Bearer ${token}`,
-                "Content-Type": "application/json",
-            },
-        }
-    );
+    try{
+        const response = await axios.put(
+            `https://api.spotify.com/v1/me/player/${state}`,
+            {},
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "application/json",
+                },
+            }
+        );
+
+        return response;
+    }
+    catch(err) {
+        return;
+    }
 }
 
 const playTrack = async (token, track) => {
