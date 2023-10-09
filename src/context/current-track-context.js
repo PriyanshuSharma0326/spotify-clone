@@ -9,7 +9,7 @@ export const CurrentTrackContextProvider = ({ children }) => {
     const [buttonClicked, setButtonClicked] = useState(false);
     const [playerState, setPlayerState] = useState(false);
 
-    const [audio, setAudio] = useState(60);
+    const [audio, setAudio] = useState(50);
 
     const { token } = useContext(TokenContext);
 

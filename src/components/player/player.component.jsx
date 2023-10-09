@@ -19,7 +19,7 @@ function Player() {
         playerState,
         setPlayerState,
         audio,
-        setAudio
+        setAudio,
     } = useContext(CurrentTrackContext);
 
     const { token } = useContext(TokenContext);
@@ -91,13 +91,13 @@ function Player() {
                     <div className="volume-icon">
                         {audio > 0 ? 
                             <VolumeUpIcon 
-                                onClick={() => setVolumeOfMusic(0)} 
                             /> : 
                             <VolumeOffIcon 
-                                onClick={() => setVolumeOfMusic(60)} 
                             />
                         }
                     </div>
+
+                    <input type="range" onMouseUp={(e) => setVolumeOfMusic(e.target.value)} min={0} max={100} />
                 </div>
             </div>
         </div>

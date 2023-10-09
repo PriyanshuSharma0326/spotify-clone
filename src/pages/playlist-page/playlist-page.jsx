@@ -25,7 +25,7 @@ function PlaylistPage() {
 
     const playlistObject = playlistItems.filter(item => item.id === playlist.id)[0];
 
-    const tracks = playlistObject[playlist.name];
+    const tracks = playlistObject[playlist?.name];
 
     useEffect(() => {
         const getProminentcolor = async () => {

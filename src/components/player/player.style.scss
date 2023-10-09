@@ -26,10 +26,15 @@
             display: flex;
             flex-direction: column;
             gap: 0.25rem;
+            width: calc(100% - 4.25rem);
 
             .track-title {
                 font-size: 0.9rem;
                 font-weight: 500;
+                width: 100%;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
             .track-artists {
@@ -98,13 +103,14 @@
         .volume-controls {
             display: flex;
             align-items: center;
+            gap: 1rem;
 
             .volume-icon {
+                line-height: 0;
                 margin-left: auto;
-                margin-right: 2rem;
 
                 .MuiSvgIcon-root {
-                    font-size: 1.75rem;
+                    font-size: 1.65rem;
                     color: var(--grey-2);
 
                     &:hover {
