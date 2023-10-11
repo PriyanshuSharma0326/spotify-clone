@@ -1,7 +1,8 @@
 
 # Melofy (A Spotify Clone)
 
-![Site preview](https://github.com/PriyanshuSharma0326/spotify-clone/assets/54506478/29c8b424-58c4-4db9-a378-1c09d6418a67)
+## Site preview
+https://github.com/PriyanshuSharma0326/spotify-clone/assets/54506478/29c8b424-58c4-4db9-a378-1c09d6418a67
 
 ## Table of Contents
 
