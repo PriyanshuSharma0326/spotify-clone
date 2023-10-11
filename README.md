@@ -1,7 +1,7 @@
 
 # Melofy (A Spotify Clone)
 
-![Site preview](./public/media/desktop-design.png)
+![Site preview](https://drive.google.com/file/d/1fJxAzrJo9wMErj5TZIvtxNaxame703CH/view?usp=sharing)
 
 ## Table of Contents
 
