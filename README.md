@@ -4,6 +4,8 @@
 ## Site preview
 https://github.com/PriyanshuSharma0326/spotify-clone/assets/54506478/29c8b424-58c4-4db9-a378-1c09d6418a67
 
+![melofy-spotify-clone vercel app_](https://github.com/user-attachments/assets/718c60f6-86be-4072-aa66-e9172b25027b)
+
 ## Table of Contents
 
 - [About](#about)
